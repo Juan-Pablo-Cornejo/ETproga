@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css'%}"> 
+    <link href="{% static 'css/bootstrap.min.css'%}" type="text/css" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    {% load static%}
+    <nav class="navbar navbar-expand-sm navbar-light bg-success">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+         <span class="navbar-toggler-icon"></span>
+       </button> 
+     <div class="collapse navbar-collapse" id="opciones">  
+       <ul class="navbar-nav mx-auto"> 
+        <li class="nav-item">
+            <a href="{% url 'inicio'%}" class="nav-link" href="#">Inicio</a> 
+          </li>
+         <li class="nav-item">
+           <a href="{% url 'home'%}" class="nav-link" href="#">Mostrar colaboradores</a> 
+         </li>
+         <li class="nav-item">
+         <a  href="{% url 'modificar_colab'%}" class="nav-link" href="#">Modificar colaborador</a>
+         </li>
+         <li class="nav-item">
+           <a  href="{% url 'crear_colab'%}" class="nav-link" href="#">Crear colaborador</a>
+         </li>         
+        </ul>
+       </div>
+      </nav>
+      <div class="container">
+        <div class="row">
+          <h1>Modificando colaborador</h1>
+        </div>
+        <div class="row">
+          <form method="POST" action="#" id="formulario">
+            {%csrf_token%}
+            <div class="form-group">
+                {{form.as_table}}
+            </div>
+                <div class="form-group">
+                 <input type="submit" class="btn btn-danger" id="modificar" value="Modificar">
+                <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
+            </div>
+        </form>
+        </div>
+      </div>
+</body>
+</html>

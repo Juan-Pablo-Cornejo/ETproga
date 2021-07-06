@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css'%}"> 
+    <link href="{% static 'css/bootstrap.min.css'%}" type="text/css" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+{% load static %}
+<nav class="navbar navbar-expand-sm navbar-light bg-success">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+     <span class="navbar-toggler-icon"></span>
+   </button> 
+ <div class="collapse navbar-collapse" id="opciones">  
+   <ul class="navbar-nav mx-auto"> 
+    <li class="nav-item">
+        <a href="{% url 'inicio'%}" class="nav-link" href="#">Inicio</a> 
+      </li>
+     <li class="nav-item">
+       <a href="{% url 'home'%}" class="nav-link" href="#">Mostrar colaboradores</a> 
+     </li>
+     <li class="nav-item">
+     <a  href="{% url 'modificar_colab'%}" class="nav-link" href="#">Modificar colaborador</a>
+     </li>
+     <li class="nav-item">
+       <a  href="{% url 'crear_colab'%}" class="nav-link" href="#">Crear colaborador</a>
+     </li>         
+    </ul>
+   </div>
+  </nav>
+        <table border=1 class="table">
+            <thead>
+                <tr><th>Rut</th><th>Fotografia</th><th>Nombre</th><th>Telefono</th><th>Direccion</th><th>email</th><th>Pais</th><th>contraseña</th><th>opciones</th></tr>
+            </thead>
+            {% for co in colaboradores %}
+            <tr><td>{{co.rutColaborador}}</td><td>{{co.fotografiaColaborador}}</td><td>{{co.nombrecompletoColaborador}}</td><td>{{co.telefonoColaborador}}</td><td>{{co.direccionColaborador}}</td>
+                <td>{{co.emailColaborador}}</td><td>{{co.paisColaborador}}</td><td>{{co.constraseñaColaborador}}</td><td><a href="{% url 'modificar_colab'%}">Modificar</a></td><td><a href="{% url 'home'%}">Eliminar</a></td></tr>
+            {% endfor %}
+        </table>   
+</body>
+</html>

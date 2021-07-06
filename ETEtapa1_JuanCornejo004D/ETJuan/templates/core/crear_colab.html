@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css'%}"> 
+    <link href="{% static 'css/bootstrap.min.css'%}" type="text/css" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+{% load static %}
+<nav class="navbar navbar-expand-sm navbar-light bg-success">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+     <span class="navbar-toggler-icon"></span>
+   </button> 
+ <div class="collapse navbar-collapse" id="opciones">  
+   <ul class="navbar-nav mx-auto"> 
+    <li class="nav-item">
+        <a href="{% url 'inicio'%}" class="nav-link" href="#">Inicio</a> 
+      </li>
+     <li class="nav-item">
+       <a href="{% url 'home'%}" class="nav-link" href="#">Mostrar colaboradores</a> 
+     </li>
+     <li class="nav-item">
+     <a  href="{% url 'modificar_colab'%}" class="nav-link" href="#">Modificar colaborador</a>
+     </li>
+     <li class="nav-item">
+       <a  href="{% url 'crear_colab'%}" class="nav-link" href="#">Crear colaborador</a>
+     </li>         
+    </ul>
+   </div>
+  </nav>
+    <div class="container-user">
+        <form method="POST" id="formulario" action="#">
+            {% csrf_token %}
+            <div class="row">
+                <div class="form-group">
+                    {{colaborador_form.rutColaborador.label}}
+                    {{colaborador_form.rutColaborador}}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    {{colaborador_form.fotografiaColaborador.label}}
+                    {{colaborador_form.fotografiaColaborador}}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    {{colaborador_form.nombrecompletoColaborador.label}}
+                    {{colaborador_form.nombrecompletoColaborador}}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    {{colaborador_form.telefonoColaborador.label}}
+                    {{colaborador_form.telefonoColaborador}}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    {{colaborador_form.direccionColaborador.label}}
+                    {{colaborador_form.direccionColaborador}}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    {{colaborador_form.emailColaborador.label}}
+                    {{colaborador_form.emailColaborador}}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    {{colaborador_form.paisColaborador.label}}
+                    {{colaborador_form.paisColaborador}}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    {{colaborador_form.constraseñaColaborador.label}}
+                    {{colaborador_form.constraseñaColaborador}}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    {{colaborador_form.tipousuario.label}}
+                    {{colaborador_form.tipousuario}}
+                </div>
+            </div>
+            <div class="rar">
+                <input type="submit" class="button1 btn btn-primary" id="enviar" value="Enviar">
+                <input type="reset" class="button1 btn btn-danger" id="limpiar" value="limpiar">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
